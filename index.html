@@ -1,110 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Tracker</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="bg-gray-50 min-h-screen">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-gray-50 min-h-screen">
     <div class="container mx-auto px-4 py-8 max-w-4xl">
-        <!-- Header -->
-        <header class="mb-8 text-center">
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">Expense Tracker</h1>
-            <p class="text-gray-600">Track your spending easily</p>
-        </header>
+      <!-- Header -->
+      <header class="mb-8 text-center">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">Expense Tracker</h1>
+        <p class="text-gray-600">Track your spending easily</p>
+      </header>
 
-        <!-- Summary Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <!-- Balance Card -->
-            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
-                <h3 class="text-gray-500 font-medium mb-1">Balance</h3>
-                <p id="balance" class="text-2xl font-bold">$0.00</p>
-            </div>
-            
-            <!-- Income Card -->
-            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
-                <h3 class="text-gray-500 font-medium mb-1">Income</h3>
-                <p id="income" class="text-2xl font-bold text-green-600">$0.00</p>
-            </div>
-            
-            <!-- Expense Card -->
-            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
-                <h3 class="text-gray-500 font-medium mb-1">Expense</h3>
-                <p id="expense" class="text-2xl font-bold text-red-600">$0.00</p>
-            </div>
+      <!-- Summary Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <!-- Balance Card -->
+        <div
+          class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500"
+        >
+          <h3 class="text-gray-500 font-medium mb-1">Balance</h3>
+          <p id="balance" class="text-2xl font-bold">$0.00</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Add Transaction Form -->
-            <div class="lg:col-span-1">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h2 class="text-xl font-semibold mb-4">Add Transaction</h2>
-                    <form id="transaction-form">
-                        <div class="mb-4">
-                            <label for="text" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                            <input type="text" id="text" placeholder="Enter description..." 
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <label for="amount" class="block text-sm font-medium text-gray-700 mb-1">Amount</label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">$</span>
-                                <input type="number" id="amount" placeholder="Enter amount..." 
-                                       class="w-full pl-8 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Type</label>
-                            <div class="flex space-x-4">
-                                <label class="inline-flex items-center">
-                                    <input type="radio" name="type" value="income" checked 
-                                           class="h-4 w-4 text-blue-600 focus:ring-blue-500">
-                                    <span class="ml-2 text-gray-700">Income</span>
-                                </label>
-                                <label class="inline-flex items-center">
-                                    <input type="radio" name="type" value="expense" 
-                                           class="h-4 w-4 text-blue-600 focus:ring-blue-500">
-                                    <span class="ml-2 text-gray-700">Expense</span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200">
-                            Add Transaction
-                        </button>
-                    </form>
+        <!-- Income Card -->
+        <div
+          class="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500"
+        >
+          <h3 class="text-gray-500 font-medium mb-1">Income</h3>
+          <p id="income" class="text-2xl font-bold text-green-600">$0.00</p>
+        </div>
+
+        <!-- Expense Card -->
+        <div
+          class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500"
+        >
+          <h3 class="text-gray-500 font-medium mb-1">Expense</h3>
+          <p id="expense" class="text-2xl font-bold text-red-600">$0.00</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Add Transaction Form -->
+        <div class="lg:col-span-1">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Add Transaction</h2>
+            <form id="transaction-form">
+              <div class="mb-4">
+                <label
+                  for="text"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Description</label
+                >
+                <input
+                  type="text"
+                  id="text"
+                  placeholder="Enter description..."
+                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  required
+                />
+              </div>
+
+              <div class="mb-4">
+                <label
+                  for="amount"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Amount</label
+                >
+                <div class="relative">
+                  <span
+                    class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500"
+                    >$</span
+                  >
+                  <input
+                    type="number"
+                    id="amount"
+                    placeholder="Enter amount..."
+                    class="w-full pl-8 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    required
+                  />
                 </div>
+              </div>
+
+              <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Type</label
+                >
+                <div class="flex space-x-4">
+                  <label class="inline-flex items-center">
+                    <input
+                      type="radio"
+                      name="type"
+                      value="income"
+                      checked
+                      class="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span class="ml-2 text-gray-700">Income</span>
+                  </label>
+                  <label class="inline-flex items-center">
+                    <input
+                      type="radio"
+                      name="type"
+                      value="expense"
+                      class="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span class="ml-2 text-gray-700">Expense</span>
+                  </label>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200"
+              >
+                Add Transaction
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="lg:col-span-2">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Transaction History</h2>
+            <div class="mb-4 flex justify-between items-center">
+              <div class="relative w-full max-w-xs">
+                <input
+                  type="text"
+                  id="search"
+                  placeholder="Search transactions..."
+                  class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+                <i
+                  class="fas fa-search absolute left-3 top-3 text-gray-400"
+                ></i>
+              </div>
+              <button
+                id="clear-all"
+                class="ml-2 text-sm text-red-600 hover:text-red-800 disabled:opacity-50"
+                disabled
+              >
+                Clear All
+              </button>
             </div>
 
-            <!-- Transaction History -->
-            <div class="lg:col-span-2">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h2 class="text-xl font-semibold mb-4">Transaction History</h2>
-                    <div class="mb-4 flex justify-between items-center">
-                        <div class="relative w-full max-w-xs">
-                            <input type="text" id="search" placeholder="Search transactions..." 
-                                   class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
-                        </div>
-                        <button id="clear-all" class="ml-2 text-sm text-red-600 hover:text-red-800 disabled:opacity-50" disabled>
-                            Clear All
-                        </button>
-                    </div>
-                    
-                    <div id="transactions" class="space-y-3 max-h-96 overflow-y-auto pr-2">
-                        <!-- Transactions will be added here dynamically -->
-                        <p id="no-transactions" class="text-gray-500 text-center py-8">No transactions yet. Add one above!</p>
-                    </div>
-                </div>
+            <div
+              id="transactions"
+              class="space-y-3 max-h-96 overflow-y-auto pr-2"
+            >
+              <!-- Transactions will be added here dynamically -->
+              <p id="no-transactions" class="text-gray-500 text-center py-8">
+                No transactions yet. Add one above!
+              </p>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
